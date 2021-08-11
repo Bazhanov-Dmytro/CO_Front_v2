@@ -1,0 +1,234 @@
+.main {
+  .slogan {
+    display: none;
+  }
+  .imageHolder {
+    h2 {
+      grid-area: h2;
+      text-align: center;
+      margin-bottom: 0;
+      width: 100%;
+    }
+    img {
+      grid-area: i1;
+      display: block;
+      border: black 1px solid;
+      border-radius: 25px;
+      margin: {
+        top: 1em;
+        left: auto;
+        right: auto;
+      }
+      height: 18em;
+      width: 25em;
+    }
+  }
+  .imgLine {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25em;
+    height: 5em;
+    margin-top: 1em;
+    margin-bottom: 4em;
+    div {
+      display: flex;
+      justify-content: space-between;
+      img {
+        border: solid black 1px;
+        cursor: pointer;
+        border-radius: 5px;
+        height: 80px;
+        width: 120px;
+      }
+      img:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  .textLeft {
+    width: 25em;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    .imageHolder {
+      grid-area: ih;
+    }
+    .imgLine {
+      grid-area: il;
+    }
+    img {
+      display: none;
+    }
+    h3 {
+      margin-bottom: 0.6em;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 1.8em;
+    }
+    text-align: justify;
+
+    button {
+      background-color: #9e8e9d;
+      color: white;
+      font-weight: 600;
+      width: 100%;
+      height: 4em;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b4a5b3;
+    }
+  }
+  .textRight {
+    width: 25em;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    .imageHolder {
+      grid-area: ih;
+    }
+    .imgLine {
+      grid-area: il;
+    }
+    img {
+      display: none;
+    }
+    h3 {
+      margin-bottom: 0.6em;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 1.8em;
+    }
+    text-align: justify;
+  }
+  button {
+    background-color: #9e8e9d;
+    display: block;
+    color: white;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em;
+    height: 4em;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #b4a5b3;
+  }
+}
+
+@media (min-width: 850px) {
+  .main {
+    display: grid;
+    grid-template-columns: 2em 1fr 1fr 3em;
+    grid-template-rows: 22em 17em 37em 8em;
+    grid-template-areas: ". sl ih ." ". . il ." ". tl tr ." ". b b .";
+
+    .slogan {
+      display: block;
+      grid-area: sl;
+      h2 {
+        display: block;
+        width: 80%;
+        margin: {
+          left: auto;
+          right: auto;
+          top: 2.25em;
+          bottom: 0;
+        }
+        text: {
+        }
+      }
+      hr {
+        width: 80%;
+      }
+      p {
+        width: 78%;
+        display: block;
+        line-height: 1.3em;
+        margin: {
+          left: auto;
+          right: auto;
+        }
+        font: {
+          size: 18px;
+        }
+        text: {
+          align: justify;
+        }
+      }
+    }
+
+    .imageHolder {
+      grid-area: ih;
+    }
+    .imgLine {
+      grid-area: il;
+    }
+    .textLeft {
+      grid-area: tl;
+      font-size: 18px;
+      width: 100%;
+      img {
+        display: block;
+        width: 10em;
+        height: 10em;
+        margin-left: 4em;
+      }
+    }
+    .textRight {
+      grid-area: tr;
+      width: 100%;
+      font-size: 18px;
+      img {
+        margin-top: 3em;
+        display: block;
+        width: 10em;
+        height: 8em;
+        margin-left: 6em;
+      }
+    }
+    button {
+      margin-top: 3em;
+      font-size: 18px;
+      width: 24em;
+      height: 3em;
+      grid-area: b;
+      border: 1px solid black;
+      border-radius: 30px;
+      box-shadow: 2px 2px 2px gray;
+    }
+    button:active {
+      color: #8d6fa3;
+      background-color: #d9d9e0;
+    }
+    .smallerButton {
+      width: 20em;
+      margin-top: 3em;
+      font-size: 18px;
+      height: 3em;
+      grid-area: b;
+    }
+  }
+}
+@media (min-width: 1075px) {
+  .main {
+    grid-template-columns: 1fr 30em 30em 1fr;
+    .smallerButton {
+      width: 26em;
+    }
+    .slogan {
+      margin-top: 3em;
+      max-width: 35em;
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+}
