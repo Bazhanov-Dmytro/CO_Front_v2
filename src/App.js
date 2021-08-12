@@ -4,6 +4,7 @@ import Footer from "./common_components/Footer";
 import Main from "./main_components/Mainpage";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
+import Cases from "./cases_components/Cases";
 
 function App() {
   const [redirect, setRedirect] = useState();
@@ -16,17 +17,14 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/main">
+          <Route path="/about">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
             <Main executeRedirect={executeRedirect} redirect={redirect} />
             <Footer />
           </Route>
-          <Route path="/about">
-            <Header executeRedirect={executeRedirect} redirect={redirect} />
-            <Footer />
-          </Route>
           <Route path="/cases">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
+            <Cases executeRedirect={executeRedirect} redirect={redirect} />
             <Footer />
           </Route>
           <Route path="/pricing">
@@ -37,8 +35,8 @@ function App() {
             <Header executeRedirect={executeRedirect} redirect={redirect} />
             <Footer />
           </Route>
-          <Route path="/">
-            <Redirect to="/main" />
+          <Route exact path="/">
+            <Redirect to="/about" />
           </Route>
         </Switch>
       </div>

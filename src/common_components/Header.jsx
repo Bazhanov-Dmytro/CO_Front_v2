@@ -48,12 +48,12 @@ function Header(props) {
           src={logo}
           className={s.logo}
           alt="logo"
-          id="/main"
+          id="/about"
           onClick={(ev) => props.executeRedirect(ev.target.id)}
         />
         <h2
           className={s.name}
-          id="/main"
+          id="/about"
           onClick={(ev) => props.executeRedirect(ev.target.id)}
         >
           Condition Observer
@@ -66,25 +66,37 @@ function Header(props) {
       <div ref={menu} className={s.menu}>
         <button
           value="/about"
-          onClick={(ev) => props.executeRedirect(ev.target.value)}
+          onClick={(ev) => {
+            props.executeRedirect(ev.target.value);
+            showMenu();
+          }}
         >
           About Us
         </button>
         <button
           value="/cases"
-          onClick={(ev) => props.executeRedirect(ev.target.value)}
+          onClick={(ev) => {
+            props.executeRedirect(ev.target.value);
+            showMenu();
+          }}
         >
           Use Cases
         </button>
         <button
           value="/pricing"
-          onClick={(ev) => props.executeRedirect(ev.target.value)}
+          onClick={(ev) => {
+            props.executeRedirect(ev.target.value);
+            showMenu();
+          }}
         >
           Pricing
         </button>
         <button
           value="/login"
-          onClick={(ev) => props.executeRedirect(ev.target.value)}
+          onClick={(ev) => {
+            props.executeRedirect(ev.target.value);
+            showMenu();
+          }}
         >
           Login
         </button>
