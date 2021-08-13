@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./common_components/Header";
 import Footer from "./common_components/Footer";
 import Main from "./main_components/Mainpage";
+import Pricing from "./pricing_components/Pricing";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Cases from "./cases_components/Cases";
@@ -29,6 +30,7 @@ function App() {
           </Route>
           <Route path="/pricing">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
+            <Pricing />
             <Footer />
           </Route>
           <Route path="/login">

@@ -1,0 +1,210 @@
+.pricing {
+  h1 {
+    text-align: center;
+    font-style: italic;
+    text-shadow: 1px 1px 2px gray;
+    margin-bottom: 0;
+  }
+  h2 {
+    text-align: center;
+    color: gray;
+    font-weight: 550;
+    font-size: 24px;
+    margin-top: 0.5em;
+  }
+
+  .switcher {
+    display: block;
+    width: 28em;
+    margin: {
+      top: 4em;
+      left: auto;
+      right: auto;
+    }
+    .switcherLeft {
+      width: 50%;
+      height: 3.5em;
+      color: white;
+      font-weight: 600;
+      font-size: 20px;
+      background-color: #69a27c;
+      border: solid black 1px;
+      border-radius: 10px 0px 0px 10px;
+    }
+    .switcherRight {
+      width: 50%;
+      height: 3.5em;
+      color: white;
+      font-weight: 600;
+      font-size: 20px;
+      background-color: #9e8e9d;
+      border: solid black 1px;
+      border-radius: 0px 10px 10px 0px;
+    }
+  }
+
+  .Card {
+    // cringe arrows down below
+    .arrowRight {
+      position: absolute;
+      height: 100%;
+      width: 30%;
+      right: -6em;
+
+      img {
+        position: relative;
+        width: 4em;
+        height: 4em;
+        padding-top: 9em;
+        padding-left: 1.2em;
+      }
+      img:hover {
+        cursor: pointer;
+      }
+    }
+    .arrowLeft {
+      position: absolute;
+      height: 100%;
+      width: 30%;
+      left: -6em;
+      img {
+        position: relative;
+        width: 4em;
+        height: 4em;
+        padding-top: 9em;
+      }
+      img:hover {
+        cursor: pointer;
+      }
+    }
+    // Cringe arrows up there
+
+    position: relative;
+    display: block;
+    margin: {
+      top: 3em;
+      left: auto;
+      right: auto;
+      bottom: 5em;
+    }
+    border: solid black 1px;
+    border-radius: 15px;
+    width: 17.5em;
+    height: 25em;
+
+    .topCard {
+      border-bottom: solid black 1px;
+      background-color: #9e8e9d;
+      border-radius: 15px 15px 0px 0px;
+      height: 3.5em;
+      h2 {
+        letter-spacing: 2px;
+        font-weight: 550;
+        margin: 0;
+        padding: {
+          top: 0.5em;
+        }
+        color: white;
+      }
+    }
+
+    ul {
+      margin-top: 2em;
+      li {
+        font-weight: 450;
+        margin: {
+          top: 0.5em;
+        }
+        list-style: none;
+      }
+    }
+
+    .bottomCard {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      p {
+        display: block;
+        text-align: center;
+        font-weight: 600;
+        margin: {
+          top: auto;
+          left: auto;
+          right: auto;
+          bottom: 0.3em;
+        }
+
+        span {
+          letter-spacing: -0.05em;
+          font-weight: 600;
+          font-size: 30px;
+        }
+      }
+      button {
+        display: block;
+        background-color: #9e8e9d;
+        border: 1px solid black;
+        height: 3em;
+        width: 12em;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        margin: {
+          top: 0;
+          left: auto;
+          right: auto;
+        }
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #c7b3c6;
+      }
+      a {
+        display: block;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+        color: blue;
+      }
+    }
+  }
+  .Card:hover {
+    box-shadow: 1px 1px 5px gray;
+  }
+}
+@media (min-width: 1050px) {
+  .pricing {
+    .cardLine {
+      display: flex;
+      justify-content: center;
+      width: 60em;
+      padding: 0;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+    }
+    .smallerLine {
+      display: flex;
+      justify-content: center;
+      width: 43em;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+    }
+    .Card {
+      margin: {
+        bottom: 0;
+      }
+      .arrowRight {
+        display: none;
+      }
+      .arrowLeft {
+        display: none;
+      }
+    }
+  }
+}
