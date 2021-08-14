@@ -1,0 +1,127 @@
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  margin: {
+    top: 5em;
+    left: auto;
+    right: auto;
+    bottom: 8em;
+  }
+  width: 20em;
+  border: solid gray 1px;
+
+  .backArrow {
+    cursor: pointer;
+    position: absolute;
+    width: 2em;
+    padding: {
+      right: 0.2em;
+    }
+    border: 1px black solid;
+    border-radius: 5px;
+    left: 1em;
+  }
+
+  img {
+    display: block;
+    margin: {
+      top: 1.2em;
+      left: auto;
+      right: auto;
+      bottom: -0.5em;
+    }
+    width: 6em;
+  }
+
+  h2 {
+    margin: {
+      top: 0;
+    }
+    font: {
+      size: 30px;
+      weight: 500;
+    }
+    text: {
+      align: center;
+    }
+  }
+
+  input {
+    font: {
+      size: 16px;
+    }
+    padding: 0.32em;
+    margin: {
+      left: auto;
+      right: auto;
+      bottom: 0.6em;
+    }
+    width: 65%;
+  }
+  input[type="checkbox"] {
+    margin-left: 0em;
+    margin-top: 0.8em;
+  }
+  input:focus {
+    box-shadow: 0px 0px 4px 1px #794b9b;
+  }
+  input[type="checkbox"]:focus {
+    box-shadow: none;
+  }
+  label {
+    margin-top: -1.6em;
+    margin-left: 7.3em;
+    padding: 0;
+  }
+
+  button {
+    cursor: pointer;
+    border: gray 1px solid;
+    border-radius: 5px;
+    color: white;
+    background-color: #9e8e9d;
+    height: 2.25em;
+    width: 69.35%;
+    font: {
+      size: 18px;
+    }
+    margin: {
+      top: 2em;
+      left: auto;
+      right: auto;
+      bottom: 0.8em;
+    }
+  }
+  button:hover {
+    background-color: #c7b3c6;
+  }
+  button:active {
+    color: #8d6fa3;
+    background-color: #d9d9e0;
+  }
+  a {
+    color: blue;
+    text: {
+      align: center;
+    }
+    margin: {
+      bottom: 0.3em;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .linkHolder {
+    display: flex;
+    flex-direction: column;
+    margin: {
+      top: 0.6em;
+      bottom: 0.4em;
+    }
+  }
+}

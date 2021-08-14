@@ -6,6 +6,8 @@ import Pricing from "./pricing_components/Pricing";
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Cases from "./cases_components/Cases";
+import SignIn from "./sign_components/SignIn";
+import SignUp from "./sign_components/SignUp";
 
 function App() {
   const [redirect, setRedirect] = useState();
@@ -35,6 +37,12 @@ function App() {
           </Route>
           <Route path="/login">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
+            <SignIn />
+            <Footer />
+          </Route>
+          <Route path="/register">
+            <Header executeRedirect={executeRedirect} redirect={redirect} />
+            <SignUp />
             <Footer />
           </Route>
           <Route exact path="/">

@@ -12,11 +12,15 @@ function Switcher(props) {
     if (id === "switch_0") {
       props.setCardset(props.cardsets[0]);
       switch_0.current.style.backgroundColor = "#69a27c";
+      switch_0.current.style.textDecoration = "underline";
       switch_1.current.style.backgroundColor = "#9e8e9d";
+      switch_1.current.style.textDecoration = "none";
     } else {
       props.setCardset(props.cardsets[1]);
       switch_1.current.style.backgroundColor = "#69A27C";
+      switch_1.current.style.textDecoration = "underline";
       switch_0.current.style.backgroundColor = "#9e8e9d";
+      switch_0.current.style.textDecoration = "none";
     }
   };
 

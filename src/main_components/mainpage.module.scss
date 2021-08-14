@@ -81,6 +81,10 @@
     button:hover {
       background-color: #b4a5b3;
     }
+    button:active {
+      color: #8d6fa3;
+      background-color: #d9d9e0;
+    }
   }
   .textRight {
     width: 25em;
@@ -120,6 +124,10 @@
   }
   button:hover {
     background-color: #b4a5b3;
+  }
+  button:active {
+    color: #8d6fa3;
+    background-color: #d9d9e0;
   }
 }
 
@@ -203,10 +211,6 @@
       border: 1px solid black;
       border-radius: 30px;
       box-shadow: 2px 2px 2px gray;
-    }
-    button:active {
-      color: #8d6fa3;
-      background-color: #d9d9e0;
     }
     .smallerButton {
       width: 20em;
