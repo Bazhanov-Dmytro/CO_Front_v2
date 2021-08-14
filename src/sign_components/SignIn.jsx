@@ -1,7 +1,10 @@
 import Form from "./Form";
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 function SignIn(props) {
+  const [redirect, setRedirect] = useState(null);
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -10,42 +13,54 @@ function SignIn(props) {
 
   const login = (ev) => {
     ev.preventDefault();
-    console.log(state);
+    axios
+      .post("http://localhost:8000/api/token/", {
+        email: state["email"],
+        password: state["password"],
+      })
+      .then((response) => {
+        localStorage.setItem("jwt_access", response.data["access"]);
+        setRedirect(<Redirect to="/dashboard" />);
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (
-    <Form
-      state={state}
-      setState={setState}
-      submitHandler={login}
-      header="Sign in"
-      fields={[
-        {
-          id: "login",
-          name: "login",
-          placeholder: "email address",
-          type: "email",
-        },
-        {
-          id: "password",
-          name: "password",
-          placeholder: "password",
-          type: "password",
-        },
-        {
-          id: "remember",
-          name: "remember",
-          placeholder: "",
-          type: "checkbox",
-          label: "Remember me",
-        },
-      ]}
-      buttonText="Sign in"
-      links={[
-        { text: "Sign up", link: "/register" },
-        { text: "Forgot credentials?", link: "/about" },
-      ]}
-    />
+    <>
+      {redirect}
+      <Form
+        state={state}
+        setState={setState}
+        submitHandler={login}
+        header="Sign in"
+        fields={[
+          {
+            id: "email",
+            name: "login",
+            placeholder: "email address",
+            type: "email",
+          },
+          {
+            id: "password",
+            name: "password",
+            placeholder: "password",
+            type: "password",
+          },
+          {
+            id: "remember",
+            name: "remember",
+            placeholder: "",
+            type: "checkbox",
+            label: "Remember me",
+          },
+        ]}
+        buttonText="Sign in"
+        links={[
+          { text: "Sign up", link: "/register" },
+          { text: "Forgot credentials?", link: "/about" },
+        ]}
+      />
+    </>
   );
 }
 
