@@ -1,5 +1,5 @@
 import Form from "./Form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
@@ -24,6 +24,12 @@ function SignIn(props) {
       })
       .catch((error) => alert(error.message));
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("jwt_access") !== null) {
+      setRedirect(<Redirect to="/dashboard" />);
+    }
+  }, []);
 
   return (
     <>

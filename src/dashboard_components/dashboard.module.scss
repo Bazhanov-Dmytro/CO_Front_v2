@@ -1,0 +1,200 @@
+body {
+  background-color: rgb(243, 243, 243);
+}
+.dashheader {
+  display: grid;
+  grid-template: {
+    columns: 4em 1fr;
+    areas: "lo db";
+  }
+  background-color: gray;
+  .logo {
+    width: 4em;
+    grid-area: lo;
+  }
+  div {
+    grid-area: db;
+    margin: {
+      left: auto;
+      right: 2%;
+    }
+    width: 25em;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      height: 40%;
+      width: 6em;
+      border: 1px solid black;
+      border-radius: 5px;
+      margin: {
+        top: auto;
+        left: 1em;
+        bottom: auto;
+      }
+    }
+    .biggerButton {
+      width: 10em;
+    }
+    button:hover {
+      cursor: pointer;
+    }
+  }
+}
+h1 {
+  text-align: center;
+}
+.table {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  background-color: rgb(243, 243, 243);
+
+  tr {
+    td {
+      position: relative;
+      background-color: white;
+      .wraper {
+        display: inline-block;
+        overflow-x: scroll;
+        border: {
+          bottom: 2px solid black;
+          spacing: 0;
+          collapse: collapse;
+        }
+        margin-bottom: -0.2em;
+        padding: {
+          top: 0.6em;
+          bottom: 0.3em;
+        }
+        width: 9.5em;
+
+        .menu {
+          position: absolute;
+          background-color: white;
+          z-index: 1;
+          display: none;
+          border-bottom: solid black 2px;
+          width: 9.5em;
+          top: 2.1em;
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              padding-top: 5px;
+              padding-bottom: 10px;
+            }
+            li:hover {
+              border-bottom: 1px solid black;
+            }
+            li:last-child:hover {
+              margin-bottom: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+  tr:first-child {
+    td {
+      background-color: rgb(243, 243, 243);
+      .wraper {
+        border-radius: 8px 8px 0px 0px;
+        background-color: white;
+        padding: {
+          top: 0.6em;
+          bottom: 0.4em;
+        }
+        font: {
+          weight: 600;
+        }
+        background-color: #a3a3a375;
+      }
+    }
+  }
+  tr:hover {
+    cursor: pointer;
+    background-color: azure;
+  }
+}
+.darkness {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.newWindowWraper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .newWindow {
+    position: relative;
+    height: 80%;
+    width: 70%;
+    background-color: white;
+    border: gray 2px solid;
+    border-radius: 7px;
+    z-index: 4;
+
+    form {
+      margin: {
+        top: 2em;
+      }
+    }
+    .controlPanel {
+      padding: {
+        bottom: 3px;
+      }
+      border-bottom: 1px black solid;
+      .buttonClose {
+        position: fixed;
+        width: 13px;
+        height: 14px;
+        margin: {
+          top: 0.2em;
+          left: 0.2em;
+        }
+        background-color: rgba(255, 0, 0, 0.555);
+        border: solid 1px rgb(170, 0, 0);
+        border-radius: 100%;
+      }
+      h5 {
+        text-align: center;
+        margin: {
+          top: 0.08em;
+          bottom: 0;
+        }
+        padding: 0;
+      }
+    }
+    .bookmark {
+      margin: {
+        left: 5px;
+      }
+      padding: 2px;
+      display: inline-block;
+      background-color: rgb(230, 230, 230);
+      cursor: pointer;
+      border: black solid 1px;
+      border-top: none;
+      border-radius: 0px 0px 5px 5px;
+      box-shadow: 1px 1px 2px rgb(110, 110, 110);
+    }
+    .active {
+      background-color: rgb(204, 204, 204);
+      box-shadow: none;
+    }
+  }
+}

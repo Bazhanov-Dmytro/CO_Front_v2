@@ -99,7 +99,7 @@ function Form(props) {
   };
 
   const generateLinks = () => {
-    return props.links.map((link) => {
+    return props.links?.map((link) => {
       return <a href={`${link.link}`}>{link.text}</a>;
     });
   };

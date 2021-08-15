@@ -8,6 +8,7 @@ import { Redirect } from "react-router-dom";
 import Cases from "./cases_components/Cases";
 import SignIn from "./sign_components/SignIn";
 import SignUp from "./sign_components/SignUp";
+import DashboardHeader from "./dashboard_components/Dashboard";
 
 function App() {
   const [redirect, setRedirect] = useState();
@@ -20,6 +21,9 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/dashboard">
+            <DashboardHeader />
+          </Route>
           <Route path="/about">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
             <Main executeRedirect={executeRedirect} redirect={redirect} />
