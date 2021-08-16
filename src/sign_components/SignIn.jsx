@@ -11,6 +11,14 @@ function SignIn(props) {
     remember: false,
   });
 
+  const getUserDetails = () => {
+    return axios.get("http://localhost:8000/api/users/user/", {
+      params: {
+        email: state.email,
+      },
+    });
+  };
+
   const login = (ev) => {
     ev.preventDefault();
     axios
@@ -20,7 +28,15 @@ function SignIn(props) {
       })
       .then((response) => {
         localStorage.setItem("jwt_access", response.data["access"]);
-        setRedirect(<Redirect to="/dashboard" />);
+        getUserDetails()
+          .then((response) => {
+            localStorage.setItem("user_email", response.data.email);
+            localStorage.setItem("user_id", response.data.id);
+            localStorage.setItem("remember_user", state.remember);
+            console.log(response.data);
+            setRedirect(<Redirect to="/dashboard" />);
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error) => alert(error.message));
   };

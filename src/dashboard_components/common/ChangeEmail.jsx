@@ -5,7 +5,7 @@ import axios from "axios";
 function ChangeEmail(props) {
   const [state, setState] = useState({
     password: "",
-    email: "dimafg12@gmail.com", // localStorage.getItem("user_email"),
+    email: localStorage.getItem("user_email"),
   });
 
   const changeEmailRequest = (ev) => {
@@ -16,16 +16,19 @@ function ChangeEmail(props) {
 
     axios
       .put(
-        `http://localhost:8000/api/users/1/`, // user id
+        `http://localhost:8000/api/users/${localStorage.getItem("user_id")}/`,
         {
           old_password: state.password,
           new_password: state.password,
-          old_email: "dimafg12@gmail.com", // localStorage.getItem("user_email"),
+          old_email: localStorage.getItem("user_email"),
           new_email: state.email,
         },
         { headers: headers }
       )
-      .then((response) => alert(response.data))
+      .then((response) => {
+        localStorage.setItem("user_email", state.email);
+        alert(response.data);
+      })
       .catch((error) => alert(error.message));
   };
 

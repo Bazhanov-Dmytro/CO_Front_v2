@@ -6,7 +6,7 @@ function ChangeBoth(props) {
   const [state, setState] = useState({
     old_password: "",
     new_password: "",
-    email: "dimafg12@gmail.com", // localStorage.getItem("user_email"),
+    email: localStorage.getItem("user_email"),
   });
 
   const ChangeBothRequest = (ev) => {
@@ -17,16 +17,19 @@ function ChangeBoth(props) {
 
     axios
       .put(
-        `http://localhost:8000/api/users/1/`, // user id
+        `http://localhost:8000/api/users/${localStorage.getItem("user_id")}/`,
         {
           old_password: state.old_password,
           new_password: state.new_password,
-          old_email: "dimafg@gmail.com", // localStorage.getItem("user_email"),
+          old_email: localStorage.getItem("user_email"),
           new_email: state.email,
         },
         { headers: headers }
       )
-      .then((response) => alert(response.data))
+      .then((response) => {
+        localStorage.setItem("user_email", state.email);
+        alert(response.data);
+      })
       .catch((error) => alert(error.message));
   };
 

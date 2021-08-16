@@ -20,8 +20,8 @@ function ChangePassword(props) {
         {
           old_password: state.old_password,
           new_password: state.new_password,
-          old_email: "dimafg12@gmail.com", // localStorage.getItem("user_email"),
-          new_email: "dimafg12@gmail.com", // localStorage.getItem("user_email"),
+          old_email: localStorage.getItem("user_email"),
+          new_email: localStorage.getItem("user_email"),
         },
         { headers: headers }
       )
