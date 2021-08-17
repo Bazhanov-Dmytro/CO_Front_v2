@@ -5,7 +5,9 @@ import { useState } from "react";
 function Table(props) {
   const [menu, setMenu] = useState(null);
 
-  const displayMenu = (ev) => {
+  const displayMenu = (ev, user) => {
+    localStorage.setItem("chosen_user", user);
+
     if (ev.target.className === s.wraper) {
       const style = ev.target.firstChild.style;
 

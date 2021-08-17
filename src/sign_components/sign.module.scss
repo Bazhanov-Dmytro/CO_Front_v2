@@ -60,6 +60,16 @@
     }
     width: 65%;
   }
+  textarea {
+    height: 8em;
+    width: 20em;
+    margin: {
+      left: auto;
+      right: auto;
+      bottom: -2em;
+    }
+    resize: none;
+  }
   input[type="checkbox"] {
     margin-left: 0em;
     margin-top: 0.8em;

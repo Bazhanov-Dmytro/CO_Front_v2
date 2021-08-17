@@ -31,9 +31,32 @@ function Form(props) {
     }
   };
 
+  const replaceInputWithTextarea = () => {
+    try {
+      const input = document.getElementById("textarea");
+      const textarea = document.createElement("textarea");
+      textarea.id = "textarea";
+      textarea.value = props.state["textarea"];
+      textarea.addEventListener("change", (ev) => {
+        props.setState((prev) => {
+          return {
+            ...prev,
+            textarea: ev.target.value,
+          };
+        });
+      });
+      textarea.maxLength = 200;
+      input.replaceWith(textarea);
+    } catch {
+      console.log(props.state.textarea);
+    }
+  };
+
   useEffect(() => {
     defineButtons(stages.length);
     const backButton = backButtonRef.current;
+
+    replaceInputWithTextarea();
 
     if (stage === 0) {
       backButton.style.opacity = 0.2;
