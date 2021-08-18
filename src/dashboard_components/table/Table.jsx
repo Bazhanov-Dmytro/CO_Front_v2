@@ -1,12 +1,13 @@
 import s from "../dashboard.module.scss";
 import Row from "./Row";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Table(props) {
   const [menu, setMenu] = useState(null);
 
   const displayMenu = (ev, user) => {
     localStorage.setItem("chosen_user", user);
+    document.removeEventListener("click", close);
 
     if (ev.target.className === s.wraper) {
       const style = ev.target.firstChild.style;
@@ -29,6 +30,14 @@ function Table(props) {
       );
     });
   };
+
+  function close() {
+    if (menu !== null) menu.display = "none";
+  }
+
+  useEffect(() => {
+    document.addEventListener("click", close);
+  });
 
   return (
     <table style={props?.style} className={s.table}>

@@ -59,7 +59,7 @@ function ReportHistory(props) {
     <div className={s.reportContainer}>
       <ul className={s.reportList}>
         <li className={s.username}>
-          Report History of <span>{localStorage.getItem("user_email")}</span>
+          Report History of <span>{localStorage.getItem("chosen_user")}</span>
         </li>
         {reports}
       </ul>
