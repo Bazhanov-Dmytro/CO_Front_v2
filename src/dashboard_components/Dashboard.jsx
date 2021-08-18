@@ -5,6 +5,8 @@ import { Redirect } from "react-router-dom";
 import Darkness from "./common/Darkness";
 import MessageBuilder from "./functions/MessageBuilder";
 import axios from "axios";
+import MessageHistory from "./functions/MessageHistory";
+import ReportHistory from "./functions/ReportHistory";
 
 function Dashboard(props) {
   const [curtain, setCurtain] = useState(null);
@@ -13,6 +15,27 @@ function Dashboard(props) {
   const [redirect, setRedirect] = useState(
     localStorage.getItem("jwt_access") !== null ? null : <Redirect to="/" />
   );
+
+  const generateReport = () => {
+    const headers = {
+      Authorization: `Bearer ${localStorage.getItem("jwt_access")}`,
+    };
+
+    axios
+      .post(
+        "http://localhost:8000/api/reports/",
+        {
+          user: localStorage.getItem("chosen_user"),
+        },
+        {
+          headers: headers,
+        }
+      )
+      .then((resp) =>
+        alert(`Report for ${localStorage.getItem("chosen_user")} was created.`)
+      )
+      .catch((error) => alert(error));
+  };
 
   const getUsers = () => {
     const header = {
@@ -35,38 +58,15 @@ function Dashboard(props) {
             menu: [
               {
                 name: "Report History",
-                func: function () {
-                  alert("/reportHistory");
-                },
-              },
-              {
-                name: "Last Report",
-                func: function () {
-                  alert("/showLast");
-                },
-              },
-              {
-                name: "Generate Report",
-                func: function () {
-                  alert("/generateReport");
-                },
-              },
-            ],
-          },
-          {
-            name: user.id,
-            menu: [
-              {
-                name: "Send Message",
                 func: function (ev) {
                   setCurtain(
                     <Darkness
                       close={() => setCurtain(null)}
-                      name="Messages"
+                      name="Reports"
                       sectors={[
                         {
-                          name: "Send Message",
-                          markup: <MessageBuilder />,
+                          name: "Report List",
+                          markup: <ReportHistory />,
                         },
                       ]}
                     />
@@ -74,12 +74,60 @@ function Dashboard(props) {
                 },
               },
               {
-                name: "Message History",
-                func: function () {
-                  alert("/messageHistory");
-                },
+                name: "Generate Report",
+                func: generateReport,
               },
             ],
+          },
+          {
+            name: user.id,
+            menu:
+              user.email !== localStorage.getItem("user_email")
+                ? [
+                    {
+                      name: "Send Message",
+                      func: function (ev) {
+                        setCurtain(
+                          <Darkness
+                            close={() => setCurtain(null)}
+                            name="Messages"
+                            sectors={[
+                              {
+                                name: "Send Message",
+                                markup: <MessageBuilder />,
+                              },
+                              {
+                                name: "Message History",
+                                markup: <MessageHistory />,
+                              },
+                            ]}
+                          />
+                        );
+                      },
+                    },
+                    {
+                      name: "Message History",
+                      func: function (ev) {
+                        setCurtain(
+                          <Darkness
+                            close={() => setCurtain(null)}
+                            name="Messages"
+                            sectors={[
+                              {
+                                name: "Message History",
+                                markup: <MessageHistory />,
+                              },
+                              {
+                                name: "Send Message",
+                                markup: <MessageBuilder />,
+                              },
+                            ]}
+                          />
+                        );
+                      },
+                    },
+                  ]
+                : null,
           },
         ],
       };

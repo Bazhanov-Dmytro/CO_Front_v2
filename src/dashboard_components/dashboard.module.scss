@@ -198,3 +198,181 @@ h1 {
     }
   }
 }
+.recipient {
+  padding: 0;
+  margin: {
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+.messages {
+  overflow-y: scroll;
+  border: solid black 1px;
+  margin: {
+    top: 2em;
+    left: auto;
+    right: auto;
+  }
+  height: 26em;
+  width: 85%;
+
+  .toUser {
+    border: solid black 1px;
+    padding: 5px;
+    background-color: rgba(0, 140, 255, 0.267);
+    margin: {
+      left: 10px;
+      right: 10%;
+    }
+  }
+  .fromUser {
+    border: solid black 1px;
+    background-color: rgba(0, 128, 0, 0.267);
+    padding: 5px;
+    margin: {
+      left: 10%;
+      right: 10px;
+    }
+  }
+}
+.reportContainer {
+  display: flex;
+  .reportList {
+    list-style: none;
+    .username {
+      color: black;
+      cursor: auto;
+      margin: {
+        left: -2em;
+        bottom: 0.3em;
+      }
+      span {
+        text-decoration: underline;
+      }
+    }
+    .username:hover {
+      text-decoration: none;
+    }
+    li {
+      margin: {
+        left: -1em;
+        bottom: 0.1em;
+      }
+      color: blue;
+      cursor: pointer;
+    }
+    li:hover {
+      text-decoration: underline;
+    }
+  }
+  .report {
+    width: 100%;
+    height: 90%;
+    display: block;
+    background-color: white;
+    display: none;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 3em;
+
+    button {
+      display: block;
+      background-color: transparent;
+      border-radius: 10px;
+      box-shadow: 0px 0px 3px gray;
+      height: 3em;
+      width: 10em;
+      margin: {
+        top: 2.3em;
+        left: auto;
+        right: auto;
+      }
+    }
+
+    p {
+      margin: {
+        top: 0.4em;
+        left: 0.5em;
+        bottom: 0.8em;
+      }
+      p {
+        margin: {
+          bottom: 0.3em;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 555px) {
+  .reportContainer {
+    .report {
+      button {
+        margin-top: 3em;
+      }
+    }
+  }
+}
+@media (min-width: 620px) {
+  .reportContainer {
+    .report {
+      button {
+        margin-top: 3.5em;
+      }
+    }
+  }
+}
+@media (min-width: 800px) {
+  .messages {
+    .toUser {
+      margin: {
+        left: 10px;
+        right: 30%;
+      }
+    }
+    .fromUser {
+      margin: {
+        left: 30%;
+        right: 10px;
+      }
+    }
+  }
+}
+@media (min-width: 950px) {
+  .reportContainer {
+    .report {
+      top: 0;
+      height: 25em;
+      width: 19.5em;
+      border: solid gray 1px;
+      box-shadow: 0px 0px 1px gray;
+      position: relative;
+      border-radius: 5px;
+      margin: {
+        left: auto;
+        right: auto;
+        top: 1.3em;
+      }
+      button {
+        display: none;
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .messages {
+    .toUser {
+      margin: {
+        left: 10px;
+        right: 45%;
+      }
+    }
+    .fromUser {
+      margin: {
+        left: 45%;
+        right: 10px;
+      }
+    }
+  }
+}
