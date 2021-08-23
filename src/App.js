@@ -8,7 +8,9 @@ import { Redirect } from "react-router-dom";
 import Cases from "./cases_components/Cases";
 import SignIn from "./sign_components/SignIn";
 import SignUp from "./sign_components/SignUp";
-import DashboardHeader from "./dashboard_components/Dashboard";
+import Dashboard from "./dashboard_components/Dashboard";
+import Monitoring from "./dashboard_components/monitoring/Monitoring";
+import RegisterSeo from "./pricing_components/RegisterSeo";
 
 function App() {
   const [redirect, setRedirect] = useState();
@@ -22,7 +24,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/dashboard">
-            <DashboardHeader />
+            <Dashboard />
           </Route>
           <Route path="/about">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
@@ -36,7 +38,7 @@ function App() {
           </Route>
           <Route path="/pricing">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
-            <Pricing />
+            <Pricing executeRedirect={executeRedirect} redirect={redirect} />
             <Footer />
           </Route>
           <Route path="/login">
@@ -44,9 +46,20 @@ function App() {
             <SignIn />
             <Footer />
           </Route>
+          <Route exact path="/monitoring">
+            <Monitoring executeRedirect={executeRedirect} redirect={redirect} />
+          </Route>
           <Route path="/register">
             <Header executeRedirect={executeRedirect} redirect={redirect} />
             <SignUp />
+            <Footer />
+          </Route>
+          <Route path="/registerseo/:price">
+            <Header executeRedirect={executeRedirect} redirect={redirect} />
+            <RegisterSeo
+              executeRedirect={executeRedirect}
+              redirect={redirect}
+            />
             <Footer />
           </Route>
           <Route exact path="/">

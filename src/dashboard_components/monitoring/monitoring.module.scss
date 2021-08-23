@@ -1,0 +1,102 @@
+.monitoring {
+  max-width: 60em;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    bottom: 3.5em;
+  }
+}
+.board {
+  display: flex;
+  margin-top: 2.5em;
+  flex-direction: column;
+}
+.indicator {
+  margin: {
+    top: 0.5em;
+    bottom: 0.5em;
+    left: auto;
+    right: auto;
+  }
+  width: 80%;
+  border: solid gray 1px;
+  box-shadow: 0px 0px 3px gray;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.mButton {
+  display: block;
+  cursor: pointer;
+  border: none;
+  font-size: 30px;
+  font-weight: 700;
+  border-radius: 5px;
+  height: 4.5em;
+  width: 80%;
+  margin: {
+    top: 0.7em;
+    left: auto;
+    right: auto;
+  }
+}
+.prefooter {
+  width: 80%;
+  box-shadow: 0px 0px 3px gray;
+  border-radius: 3px;
+  margin: {
+    top: 2em;
+    left: auto;
+    right: auto;
+  }
+  border: solid black 1px;
+
+  h2 {
+    display: block;
+    margin: {
+      left: 0.5em;
+    }
+  }
+}
+@media (min-width: 800px) {
+  .monitoring {
+    border: solid black 1px;
+    box-shadow: 0px 0px 3px gray;
+    border-radius: 3px;
+  }
+  .board {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    max-width: 60em;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+  .indicator {
+    width: 15em;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    max-width: 60em;
+    .mButton {
+      height: 4.5em;
+      width: 12em;
+    }
+  }
+  .prefooter {
+    width: 40em;
+    h2 {
+      margin: {
+        left: 2em;
+      }
+    }
+  }
+}

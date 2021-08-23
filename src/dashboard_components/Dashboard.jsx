@@ -7,6 +7,7 @@ import MessageBuilder from "./functions/MessageBuilder";
 import axios from "axios";
 import MessageHistory from "./functions/MessageHistory";
 import ReportHistory from "./functions/ReportHistory";
+import RoleChanger from "./functions/RoleChanger";
 
 function Dashboard(props) {
   const [curtain, setCurtain] = useState(null);
@@ -15,6 +16,11 @@ function Dashboard(props) {
   const [redirect, setRedirect] = useState(
     localStorage.getItem("jwt_access") !== null ? null : <Redirect to="/" />
   );
+
+  const notApproved =
+    localStorage.getItem("user_role") === "null" ? (
+      <h3 style={{ textAlign: "center" }}>Your account is not approved yet</h3>
+    ) : null;
 
   const generateReport = () => {
     const headers = {
@@ -47,7 +53,7 @@ function Dashboard(props) {
 
   const serializeUsers = async () => {
     let users = await getUsers();
-    console.log(users.data);
+    if (users.data === "Not approved account") return false;
     const result = users.data.map((user) => {
       return {
         cells: [
@@ -56,27 +62,47 @@ function Dashboard(props) {
           {
             name: user.name,
             menu: [
-              {
-                name: "Report History",
-                func: function (ev) {
-                  setCurtain(
-                    <Darkness
-                      close={() => setCurtain(null)}
-                      name="Reports"
-                      sectors={[
-                        {
-                          name: "Report List",
-                          markup: <ReportHistory />,
-                        },
-                      ]}
-                    />
-                  );
-                },
-              },
-              {
-                name: "Generate Report",
-                func: generateReport,
-              },
+              +localStorage.getItem("user_role") === 3
+                ? {
+                    name: "Change Role",
+                    func: function (ev) {
+                      setCurtain(
+                        <Darkness
+                          close={() => setCurtain(null)}
+                          name="Roles"
+                          sectors={[
+                            {
+                              name: "Role List",
+                              markup: <RoleChanger />,
+                            },
+                          ]}
+                        />
+                      );
+                    },
+                  }
+                : {
+                    name: "Report History",
+                    func: function (ev) {
+                      setCurtain(
+                        <Darkness
+                          close={() => setCurtain(null)}
+                          name="Reports"
+                          sectors={[
+                            {
+                              name: "Report List",
+                              markup: <ReportHistory />,
+                            },
+                          ]}
+                        />
+                      );
+                    },
+                  },
+              +localStorage.getItem("user_role") === 1
+                ? {
+                    name: "Generate Report",
+                    func: generateReport,
+                  }
+                : null,
             ],
           },
           {
@@ -135,7 +161,9 @@ function Dashboard(props) {
     result.unshift({
       cells: [
         { name: "Lastname" },
-        { name: "Last Report" },
+        +localStorage.getItem("user_role") === 3
+          ? { name: "Role" }
+          : { name: "Last Report" },
         { name: "Messages" },
       ],
     });
@@ -155,6 +183,7 @@ function Dashboard(props) {
       {redirect}
       {curtain}
       <DashboardHeader setRedirect={setRedirect} setCurtain={setCurtain} />
+      {notApproved}
       <Table style={{ textAlign: "center" }} rows={usersData} />
     </>
   );

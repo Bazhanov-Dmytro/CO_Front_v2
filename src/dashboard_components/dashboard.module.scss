@@ -376,3 +376,32 @@ h1 {
     }
   }
 }
+.changeRole {
+  margin: {
+    left: 5px;
+  }
+  ul {
+    list-style: circle;
+    margin-top: -10px;
+    margin-left: -10px;
+    li {
+      cursor: pointer;
+      color: blue;
+    }
+    li:hover {
+      text-decoration: underline;
+    }
+  }
+  button {
+    color: red;
+    border: solid rgba(255, 0, 0, 0.842) 1px;
+    height: 2em;
+    width: 10em;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.151);
+    cursor: pointer;
+  }
+  button:active {
+    background-color: rgba(255, 0, 0, 0.596);
+  }
+}

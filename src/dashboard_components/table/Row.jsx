@@ -13,9 +13,11 @@ function Row(props) {
               <div className={s.wraper}>
                 <div className={s.menu}>
                   <ul>
-                    {cell?.menu?.map((item) => (
-                      <li onClick={item?.func}>{item?.name}</li>
-                    ))}
+                    {cell?.menu?.map((item) =>
+                      item !== null ? (
+                        <li onClick={item?.func}>{item?.name}</li>
+                      ) : null
+                    )}
                   </ul>
                 </div>
 

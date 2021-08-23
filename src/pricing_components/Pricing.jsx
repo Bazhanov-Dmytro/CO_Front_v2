@@ -21,10 +21,18 @@ function Pricing(props) {
 
   const cardset_0 = [
     { header: "Basic", price: "$30", items: ["item 1", "item 2", "item 3"] },
-    { header: "Basic", price: "$60", items: ["item 4", "item 5", "item 6"] },
-    { header: "Basic", price: "$90", items: ["item 4", "item 5", "item 6"] },
-    { header: "Basic", price: "$150", items: ["item 4", "item 5", "item 6"] },
-    { header: "Basic", price: "$225", items: ["item 4", "item 5", "item 6"] },
+    { header: "Advanced", price: "$60", items: ["item 4", "item 5", "item 6"] },
+    { header: "Pro", price: "$90", items: ["item 4", "item 5", "item 6"] },
+    {
+      header: "Enterprise",
+      price: "$150",
+      items: ["item 4", "item 5", "item 6"],
+    },
+    {
+      header: "Enterprise +",
+      price: "$225",
+      items: ["item 4", "item 5", "item 6"],
+    },
   ];
   const cardset_1 = [
     {
@@ -51,6 +59,8 @@ function Pricing(props) {
     for (let i = 1; i <= cardset.length; i++) {
       cardsForLine.push(
         <Card
+          executeRedirect={props.executeRedirect}
+          redirect={props.redirect}
           header={cardset[i - 1]["header"]}
           price={cardset[i - 1]["price"]}
           items={cardset[i - 1]["items"]}
@@ -73,6 +83,8 @@ function Pricing(props) {
 
     return (
       <Card
+        executeRedirect={props.executeRedirect}
+        redirect={props.redirect}
         moveCard={moveCard}
         header={cardInfo["header"]}
         price={cardInfo["price"]}

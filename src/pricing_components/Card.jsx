@@ -27,7 +27,11 @@ function Card(props) {
         <p>
           <span>{props.price}</span> Single Payment
         </p>
-        <button>Choose The Plan</button>
+        <button
+          onClick={() => props.executeRedirect(`/registerseo/${props.header}`)}
+        >
+          Choose The Plan
+        </button>
         <a href="about">Details</a>
       </div>
     </div>
