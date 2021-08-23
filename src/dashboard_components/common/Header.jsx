@@ -14,14 +14,8 @@ function DashboardHeader(props) {
     props.setRedirect(<Redirect to="/" />);
   };
 
-  const monitoringRedirect = () => {
-    props.setRedirect(<Redirect to="/monitoring" />);
-  };
-
   const monitoring =
-    location.pathname === "/dashboard" ? (
-      <button onClick={monitoringRedirect}>Monitoring</button>
-    ) : (
+    location.pathname === "/dashboard" ? null : (
       <button onClick={() => props.setRedirect(<Redirect to="/dashboard" />)}>
         Back
       </button>

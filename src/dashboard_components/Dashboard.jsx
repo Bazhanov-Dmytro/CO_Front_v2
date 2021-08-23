@@ -58,7 +58,18 @@ function Dashboard(props) {
       return {
         cells: [
           { email: user.email },
-          { name: user.lastname },
+          {
+            name: user.lastname,
+            menu:
+              +localStorage.getItem("user_role") === 1
+                ? [
+                    {
+                      name: "Monitoring",
+                      func: () => setRedirect(<Redirect to="/monitoring" />),
+                    },
+                  ]
+                : null,
+          },
           {
             name: user.name,
             menu: [
